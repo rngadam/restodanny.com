@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resto Danny - Un héritage de solidarité</title>
+    <meta name="description" content="Projet de cafétéria communautaire dans le quartier François-Perreault (Saint-Michel) en hommage à Danny Ng.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body { font-family: 'Lato', sans-serif; scroll-behavior: smooth; }
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1543362906-ac1b16c6756d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80'); /* Image d'ambiance restaurant chaleureux */
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="bg-stone-50 text-stone-800 antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/95 backdrop-blur shadow-sm z-50 transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0">
+                    <span class="text-2xl font-bold text-amber-700 tracking-wide">Resto Danny</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#histoire" class="hover:text-amber-600 px-3 py-2 rounded-md text-sm font-medium transition">L'Histoire</a>
+                        <a href="#projet" class="hover:text-amber-600 px-3 py-2 rounded-md text-sm font-medium transition">Le Projet</a>
+                        <a href="#partenariat" class="hover:text-amber-600 px-3 py-2 rounded-md text-sm font-medium transition">Le Modèle</a>
+                        <a href="#agir" class="bg-amber-700 text-white hover:bg-amber-800 px-4 py-2 rounded-md text-sm font-medium transition shadow-md">Nous soutenir</a>
+                    </div>
+                </div>
+                <!-- Mobile menu button (Hamburger) -->
+                <div class="-mr-2 flex md:hidden">
+                    <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-stone-400 hover:text-stone-500 hover:bg-stone-100 focus:outline-none" aria-controls="mobile-menu" aria-expanded="false">
+                        <span class="sr-only">Ouvrir le menu</span>
+                        <i data-lucide="menu" class="h-6 w-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-bg h-screen flex items-center justify-center text-center px-4">
+        <div class="max-w-4xl mx-auto text-white space-y-6">
+            <h1 class="text-5xl md:text-7xl font-bold leading-tight drop-shadow-lg">
+                Nourrir la communauté,<br>honorer une mémoire.
+            </h1>
+            <p class="text-xl md:text-2xl font-light max-w-3xl mx-auto drop-shadow-md text-stone-100 leading-normal">
+                Un projet de cafétéria communautaire solidaire au cœur du quartier François-Perreault dans l'arrondissement Villeray–Saint-Michel–Parc-Extension.
+            </p>
+            <div class="pt-8">
+                <a href="#agir" class="inline-block bg-amber-600 hover:bg-amber-700 text-white text-lg font-semibold px-8 py-4 rounded-full transition transform hover:-translate-y-1 shadow-lg">
+                    Soutenir le projet
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- L'Histoire Section -->
+    <section id="histoire" class="py-20 bg-white">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="order-2 md:order-1 relative">
+                    <!-- Placeholder pour une photo d'archive de Danny Ng -->
+                    <div class="aspect-[4/5] bg-stone-200 rounded-lg overflow-hidden shadow-xl relative group">
+                        <img src="https://images.unsplash.com/photo-1556910103-1c02745a30bf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Ambiance cuisine vintage" class="object-cover w-full h-full opacity-90 group-hover:scale-105 transition duration-700">
+                        <div class="absolute inset-0 bg-stone-900/10"></div>
+                        <div class="absolute bottom-4 left-4 right-4 bg-white/90 p-4 rounded shadow">
+                            <p class="text-sm italic text-stone-600">Danny Ng en cuisine - Une vie dédiée au service (Archive)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="order-1 md:order-2 space-y-6">
+                    <div class="inline-flex items-center space-x-2 text-amber-600 font-semibold uppercase tracking-wider text-sm">
+                        <span class="w-8 h-[1px] bg-amber-600"></span>
+                        <span>L'Héritage</span>
+                    </div>
+                    <h2 class="text-4xl font-bold text-stone-900">Un héritage culinaire</h2>
+                    <div class="prose prose-stone text-lg text-stone-600 leading-relaxed">
+                        <p>
+                            L'histoire du Resto Danny commence bien avant aujourd'hui. Elle débute en 1975, dans la cuisine d'un restaurant de Rouyn-Noranda, par la rencontre entre <strong>Wing Chai « Danny » Ng</strong> (né le 2 février 1950 à Hong Kong) et Lorraine Adam.
+                        </p>
+                        <p>
+                            Immigré au Canada avec une passion pour la cuisine, Danny a consacré sa vie à la restauration, notamment comme propriétaire du célèbre <em>Park Lane</em> à Montréal (sur l'avenue du Parc puis rue Rosemont). Pour lui, la cuisine n'était pas qu'un métier, c'était un langage d'amour et de réunion.
+                        </p>
+                        <p>
+                            Suite à son décès le 6 novembre 2025, son fils Ricky souhaite transformer cet héritage familial en une ressource durable pour la communauté. Le <strong>Resto Danny</strong> est né de cette volonté : offrir à Saint-Michel ce que Danny a offert toute sa vie — de la nourriture chaude, réconfortante et accessible.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Le Projet Section -->
+    <section id="projet" class="py-20 bg-stone-100">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-4xl font-bold text-stone-900 mb-4">Plus qu'un repas, un lieu de dignité</h2>
+                <p class="text-xl text-stone-600">
+                    Implanté dans l'arrondissement Villeray–Saint-Michel–Parc-Extension, le Resto Danny vise à offrir une réponse concrète à l'insécurité alimentaire.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition border border-stone-100">
+                    <div class="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mb-6 text-amber-700">
+                        <i data-lucide="utensils" class="h-6 w-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-stone-900">Repas nutritifs</h3>
+                    <p class="text-stone-600">
+                        Des menus sains, équilibrés et réconfortants, préparés avec soin pour nourrir le corps et l'esprit.
+                    </p>
+                </div>
+                <!-- Card 2 -->
+                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition border border-stone-100">
+                    <div class="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mb-6 text-amber-700">
+                        <i data-lucide="heart-handshake" class="h-6 w-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-stone-900">Prix solidaires</h3>
+                    <p class="text-stone-600">
+                        Une tarification modique et flexible pour garantir l'accessibilité à tous, sans stigmatisation.
+                    </p>
+                </div>
+                <!-- Card 3 -->
+                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition border border-stone-100">
+                    <div class="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mb-6 text-amber-700">
+                        <i data-lucide="users" class="h-6 w-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-stone-900">Lieu de vie</h3>
+                    <p class="text-stone-600">
+                        Un espace inclusif pour briser l'isolement social, décoré avec les œuvres de l'artiste Michelle Hénault.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Le Modèle Section (Partenariat) -->
+    <section id="partenariat" class="py-20 bg-amber-900 text-white relative overflow-hidden">
+        <!-- Decorative pattern -->
+        <div class="absolute inset-0 opacity-10 pattern-dots"></div>
+        
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-12">
+                <div class="md:w-1/2 space-y-6">
+                    <h2 class="text-4xl font-bold text-white mb-6">Un modèle durable</h2>
+                    <p class="text-lg text-amber-100 leading-relaxed">
+                        Pour assurer la pérennité et la qualité des opérations, le projet Resto Danny vise un partenariat opérationnel avec <strong class="text-white">Resto Plateau</strong>.
+                    </p>
+                    <p class="text-lg text-amber-100 leading-relaxed">
+                        Acteur incontournable de l'économie sociale depuis 1992, Resto Plateau possède une expertise unique en insertion socioprofessionnelle et en gestion de services alimentaires. Ce partenariat prospectif permettrait au Resto Danny de bénéficier d'une structure solide, tout en formant la relève en cuisine.
+                    </p>
+                </div>
+                <div class="md:w-1/2 bg-white/10 p-8 rounded-lg backdrop-blur-sm border border-white/20">
+                    <h3 class="text-xl font-bold mb-4 text-amber-300">Impact visé</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i data-lucide="check-circle" class="h-5 w-5 text-amber-400 mt-1 mr-3 flex-shrink-0"></i>
+                            <span>Sécurité alimentaire accrue dans Saint-Michel</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="check-circle" class="h-5 w-5 text-amber-400 mt-1 mr-3 flex-shrink-0"></i>
+                            <span>Création d'emplois et formation en cuisine</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="check-circle" class="h-5 w-5 text-amber-400 mt-1 mr-3 flex-shrink-0"></i>
+                            <span>Modèle d'économie sociale pérenne</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Agir Section -->
+    <section id="agir" class="py-24 bg-white">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold text-stone-900 mb-6">Participez à l'histoire</h2>
+            <p class="text-xl text-stone-600 mb-10 max-w-2xl mx-auto">
+                Le démarrage de ce projet repose sur la mobilisation de la communauté. Nous sommes à la recherche de partenaires immobiliers (locaux), de donateurs majeurs et de bénévoles pour le comité de démarrage.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="mailto:ricky@restodanny.com" class="inline-flex items-center justify-center bg-amber-700 hover:bg-amber-800 text-white font-bold py-4 px-8 rounded-full shadow-lg transition transform hover:-translate-y-1">
+                    <i data-lucide="mail" class="mr-2 h-5 w-5"></i>
+                    Me contacter pour aider
+                </a>
+                <a href="https://restoplateau.com/contribuer/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center bg-white hover:bg-stone-50 text-amber-700 border-2 border-amber-700 font-bold py-4 px-8 rounded-full transition">
+                    Faire un don
+                </a>
+            </div>
+            <p class="mt-4 text-sm text-stone-500 italic">
+                * En cliquant sur "Faire un don", vous serez redirigé vers la page de don sécurisée de notre partenaire Resto Plateau.
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-stone-900 text-stone-400 py-12">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-4 md:mb-0">
+                <span class="text-2xl font-bold text-white tracking-wide font-serif">Resto Danny</span>
+                <p class="text-sm mt-2">Un projet d'économie sociale en devenir.</p>
+            </div>
+            <div class="flex space-x-6">
+                <a href="mailto:ricky@restodanny.com" class="hover:text-white transition">Contact</a>
+                <span class="text-stone-600">|</span>
+                <span class="text-sm">© 2025 Projet Resto Danny. Une initiative philanthropique privée.</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Initialize Lucide Icons -->
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
