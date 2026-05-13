@@ -52,11 +52,22 @@
                 <!-- Mobile menu button (Hamburger) -->
                 <div class="-mr-2 flex md:hidden items-center">
                     <a href="index.html" onclick="setLanguage('fr')" class="mr-4 text-stone-600 hover:text-amber-600 font-bold text-sm border border-stone-200 px-2 py-1 rounded">FR</a>
-                    <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-stone-400 hover:text-stone-500 hover:bg-stone-100 focus:outline-none" aria-controls="mobile-menu" aria-expanded="false">
+                    <button type="button" onclick="document.getElementById('mobile-menu').classList.toggle('hidden');" class="inline-flex items-center justify-center p-2 rounded-md text-stone-400 hover:text-stone-500 hover:bg-stone-100 focus:outline-none" aria-controls="mobile-menu" aria-expanded="false">
                         <span class="sr-only">Open main menu</span>
                         <i data-lucide="menu" class="h-6 w-6"></i>
                     </button>
                 </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t border-stone-200 absolute w-full left-0">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#histoire" onclick="document.getElementById('mobile-menu').classList.add('hidden');" class="hover:bg-stone-50 block px-3 py-2 rounded-md text-base font-medium text-stone-900">The Story</a>
+                <a href="#fonds" onclick="document.getElementById('mobile-menu').classList.add('hidden');" class="hover:bg-stone-50 block px-3 py-2 rounded-md text-base font-medium text-stone-900">The Fund</a>
+                <a href="#projet" onclick="document.getElementById('mobile-menu').classList.add('hidden');" class="hover:bg-stone-50 block px-3 py-2 rounded-md text-base font-medium text-stone-900">The Project</a>
+                <a href="#partenariat" onclick="document.getElementById('mobile-menu').classList.add('hidden');" class="hover:bg-stone-50 block px-3 py-2 rounded-md text-base font-medium text-stone-900">The Model</a>
+                <a href="#agir" onclick="document.getElementById('mobile-menu').classList.add('hidden');" class="hover:bg-stone-50 block px-3 py-2 rounded-md text-base font-medium text-amber-700">Support Us</a>
             </div>
         </div>
     </nav>
