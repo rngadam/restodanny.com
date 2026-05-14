@@ -1,318 +1,564 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Resto Danny - Un héritage de solidarité</title>
-    <meta name="description" content="Projet de cafétéria communautaire dans l'arrondissement Villeray-Saint-Michel-Parc-Extension (VSP) en hommage à Danny Ng.">
+    <meta
+      name="description"
+      content="Projet de cafétéria communautaire dans l'arrondissement Villeray-Saint-Michel-Parc-Extension (VSP) en hommage à Danny Ng."
+    />
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
 
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="manifest" href="site.webmanifest">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+    <link rel="manifest" href="site.webmanifest" />
 
     <script src="https://unpkg.com/lucide@latest"></script>
     <script>
-        // Language Auto-selector
-        (function() {
-            // Check if user has already made a choice
-            const langChoice = localStorage.getItem('lang_choice');
+      // Language Auto-selector
+      (function () {
+        // Check if user has already made a choice
+        const langChoice = localStorage.getItem("lang_choice");
 
-            // If they explicitly chose French from English site, or if we already redirected them, stay here.
-            if (!langChoice) {
-                // Get browser language
-                const browserLang = navigator.language || navigator.userLanguage;
+        // If they explicitly chose French from English site, or if we already redirected them, stay here.
+        if (!langChoice) {
+          // Get browser language
+          const browserLang = navigator.language || navigator.userLanguage;
 
-                // If browser language starts with 'en', redirect to English site
-                if (browserLang && browserLang.startsWith('en')) {
-                    // Mark as automatically redirected so we don't loop or redirect repeatedly unnecessarily
-                    localStorage.setItem('lang_choice', 'en_auto');
-                    window.location.replace('index.en.html');
-                }
-            }
-        })();
-
-        // Function to call when clicking the language selector
-        function setLanguage(lang) {
-            localStorage.setItem('lang_choice', lang);
+          // If browser language starts with 'en', redirect to English site
+          if (browserLang && browserLang.startsWith("en")) {
+            // Mark as automatically redirected so we don't loop or redirect repeatedly unnecessarily
+            localStorage.setItem("lang_choice", "en_auto");
+            window.location.replace("index.en.html");
+          }
         }
+      })();
+
+      // Function to call when clicking the language selector
+      function setLanguage(lang) {
+        localStorage.setItem("lang_choice", lang);
+      }
     </script>
     <style>
-        body { font-family: 'Lato', sans-serif; scroll-behavior: smooth; }
-        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
-        .hero-bg {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://raw.githubusercontent.com/rngadam/assets/refs/heads/main/processed_media/images/aerial-view-school-residential-neighborhood-1920w.webp'); /* Image d'ambiance restaurant chaleureux */
-            background-size: cover;
-            background-position: center;
-        }
+      body {
+        font-family: "Lato", sans-serif;
+        scroll-behavior: smooth;
+      }
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: "Playfair Display", serif;
+      }
+      .hero-bg {
+        background-image:
+          linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+          url("https://raw.githubusercontent.com/rngadam/assets/refs/heads/main/processed_media/images/aerial-view-school-residential-neighborhood-1920w.webp"); /* Image d'ambiance restaurant chaleureux */
+        background-size: cover;
+        background-position: center;
+      }
     </style>
-</head>
-<body class="bg-stone-50 text-stone-800 antialiased">
-
+  </head>
+  <body class="bg-stone-50 text-stone-800 antialiased">
     <!-- Navigation -->
-    <nav class="fixed w-full bg-white/95 backdrop-blur shadow-sm z-50 transition-all duration-300">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <div class="flex-shrink-0">
-                    <span class="text-2xl font-bold text-amber-700 tracking-wide">Resto Danny</span>
-                </div>
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-8">
-                        <a href="#histoire" class="hover:text-amber-600 px-3 py-2 rounded-md text-sm font-medium transition">L'Histoire</a>
-                        <a href="#fonds" class="hover:text-amber-600 px-3 py-2 rounded-md text-sm font-medium transition">Le Fonds</a>
-                        <a href="#projet" class="hover:text-amber-600 px-3 py-2 rounded-md text-sm font-medium transition">Le Projet</a>
-                        <a href="#partenariat" class="hover:text-amber-600 px-3 py-2 rounded-md text-sm font-medium transition">Le Modèle</a>
-                        <a href="#agir" class="bg-amber-700 text-white hover:bg-amber-800 px-4 py-2 rounded-md text-sm font-medium transition shadow-md">Nous soutenir</a>
-                        <a href="index.en.html" onclick="setLanguage('en')" class="hover:text-amber-600 px-3 py-2 rounded-md text-sm font-bold transition border border-stone-200 ml-4">EN</a>
-                    </div>
-                </div>
-                <!-- Mobile menu button (Hamburger) -->
-                <div class="-mr-2 flex md:hidden items-center">
-                    <a href="index.en.html" onclick="setLanguage('en')" class="mr-4 text-stone-600 hover:text-amber-600 font-bold text-sm border border-stone-200 px-2 py-1 rounded">EN</a>
-                    <button type="button" onclick="document.getElementById('mobile-menu').classList.toggle('hidden');" class="inline-flex items-center justify-center p-2 rounded-md text-stone-400 hover:text-stone-500 hover:bg-stone-100 focus:outline-none" aria-controls="mobile-menu" aria-expanded="false">
-                        <span class="sr-only">Ouvrir le menu</span>
-                        <i data-lucide="menu" class="h-6 w-6"></i>
-                    </button>
-                </div>
+    <nav
+      class="fixed w-full bg-white/95 backdrop-blur shadow-sm z-50 transition-all duration-300"
+    >
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-20">
+          <div class="flex-shrink-0">
+            <span class="text-2xl font-bold text-amber-700 tracking-wide"
+              >Resto Danny</span
+            >
+          </div>
+          <div class="hidden md:block">
+            <div class="ml-10 flex items-baseline space-x-8">
+              <a
+                href="#histoire"
+                class="hover:text-amber-600 px-3 py-2 rounded-md text-sm font-medium transition"
+                >L'Histoire</a
+              >
+              <a
+                href="#fonds"
+                class="hover:text-amber-600 px-3 py-2 rounded-md text-sm font-medium transition"
+                >Le Fonds</a
+              >
+              <a
+                href="#projet"
+                class="hover:text-amber-600 px-3 py-2 rounded-md text-sm font-medium transition"
+                >Le Projet</a
+              >
+              <a
+                href="#partenariat"
+                class="hover:text-amber-600 px-3 py-2 rounded-md text-sm font-medium transition"
+                >Le Modèle</a
+              >
+              <a
+                href="#agir"
+                class="bg-amber-700 text-white hover:bg-amber-800 px-4 py-2 rounded-md text-sm font-medium transition shadow-md"
+                >Nous soutenir</a
+              >
+              <a
+                href="index.en.html"
+                onclick="setLanguage('en')"
+                class="hover:text-amber-600 px-3 py-2 rounded-md text-sm font-bold transition border border-stone-200 ml-4"
+                >EN</a
+              >
             </div>
+          </div>
+          <!-- Mobile menu button (Hamburger) -->
+          <div class="-mr-2 flex md:hidden items-center">
+            <a
+              href="index.en.html"
+              onclick="setLanguage('en')"
+              class="mr-4 text-stone-600 hover:text-amber-600 font-bold text-sm border border-stone-200 px-2 py-1 rounded"
+              >EN</a
+            >
+            <button
+              type="button"
+              onclick="
+                document
+                  .getElementById('mobile-menu')
+                  .classList.toggle('hidden')
+              "
+              class="inline-flex items-center justify-center p-2 rounded-md text-stone-400 hover:text-stone-500 hover:bg-stone-100 focus:outline-none"
+              aria-controls="mobile-menu"
+              aria-expanded="false"
+            >
+              <span class="sr-only">Ouvrir le menu</span>
+              <i data-lucide="menu" class="h-6 w-6"></i>
+            </button>
+          </div>
         </div>
+      </div>
 
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="md:hidden hidden bg-white border-t border-stone-200 absolute w-full left-0">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#histoire" onclick="document.getElementById('mobile-menu').classList.add('hidden');" class="hover:bg-stone-50 block px-3 py-2 rounded-md text-base font-medium text-stone-900">L'Histoire</a>
-                <a href="#fonds" onclick="document.getElementById('mobile-menu').classList.add('hidden');" class="hover:bg-stone-50 block px-3 py-2 rounded-md text-base font-medium text-stone-900">Le Fonds</a>
-                <a href="#projet" onclick="document.getElementById('mobile-menu').classList.add('hidden');" class="hover:bg-stone-50 block px-3 py-2 rounded-md text-base font-medium text-stone-900">Le Projet</a>
-                <a href="#partenariat" onclick="document.getElementById('mobile-menu').classList.add('hidden');" class="hover:bg-stone-50 block px-3 py-2 rounded-md text-base font-medium text-stone-900">Le Modèle</a>
-                <a href="#agir" onclick="document.getElementById('mobile-menu').classList.add('hidden');" class="hover:bg-stone-50 block px-3 py-2 rounded-md text-base font-medium text-amber-700">Nous soutenir</a>
-            </div>
+      <!-- Mobile Menu -->
+      <div
+        id="mobile-menu"
+        class="md:hidden hidden bg-white border-t border-stone-200 absolute w-full left-0"
+      >
+        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+          <a
+            href="#histoire"
+            onclick="
+              document.getElementById('mobile-menu').classList.add('hidden')
+            "
+            class="hover:bg-stone-50 block px-3 py-2 rounded-md text-base font-medium text-stone-900"
+            >L'Histoire</a
+          >
+          <a
+            href="#fonds"
+            onclick="
+              document.getElementById('mobile-menu').classList.add('hidden')
+            "
+            class="hover:bg-stone-50 block px-3 py-2 rounded-md text-base font-medium text-stone-900"
+            >Le Fonds</a
+          >
+          <a
+            href="#projet"
+            onclick="
+              document.getElementById('mobile-menu').classList.add('hidden')
+            "
+            class="hover:bg-stone-50 block px-3 py-2 rounded-md text-base font-medium text-stone-900"
+            >Le Projet</a
+          >
+          <a
+            href="#partenariat"
+            onclick="
+              document.getElementById('mobile-menu').classList.add('hidden')
+            "
+            class="hover:bg-stone-50 block px-3 py-2 rounded-md text-base font-medium text-stone-900"
+            >Le Modèle</a
+          >
+          <a
+            href="#agir"
+            onclick="
+              document.getElementById('mobile-menu').classList.add('hidden')
+            "
+            class="hover:bg-stone-50 block px-3 py-2 rounded-md text-base font-medium text-amber-700"
+            >Nous soutenir</a
+          >
         </div>
+      </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero-bg h-screen flex items-center justify-center text-center px-4">
-        <div class="max-w-4xl mx-auto text-white space-y-6">
-            <h1 class="text-4xl md:text-6xl font-bold leading-tight drop-shadow-lg">
-                Héritage Danny Ng :<br>Nourrir la communauté
-            </h1>
-            <p class="text-xl md:text-2xl font-bold max-w-3xl mx-auto drop-shadow-md text-stone-100 leading-normal">
-                De la passion d'un homme à une mission durable pour Montréal.
-            </p>
-            <p class="text-lg md:text-xl font-light max-w-3xl mx-auto drop-shadow-md text-stone-100 leading-normal">
-                Ce site est dédié à la mémoire de Danny (Wing Chai) Ng et à la poursuite de son œuvre. Au-delà de sa biographie et de son amour pour la restauration, nous transformons aujourd'hui cet héritage en action concrète pour la sécurité alimentaire dans l'arrondissement Villeray-Saint-Michel-Parc-Extension et à travers Montréal.
-            </p>
-            <div class="pt-8">
-                <a href="#agir" class="inline-block bg-amber-600 hover:bg-amber-700 text-white text-lg font-semibold px-8 py-4 rounded-full transition transform hover:-translate-y-1 shadow-lg">
-                    Soutenir le projet
-                </a>
-            </div>
+    <section
+      class="hero-bg h-screen flex items-center justify-center text-center px-4"
+    >
+      <div class="max-w-4xl mx-auto text-white space-y-6">
+        <h1 class="text-4xl md:text-6xl font-bold leading-tight drop-shadow-lg">
+          Héritage Danny Ng :<br />Nourrir la communauté
+        </h1>
+        <p
+          class="text-xl md:text-2xl font-bold max-w-3xl mx-auto drop-shadow-md text-stone-100 leading-normal"
+        >
+          De la passion d'un homme à une mission durable pour Montréal.
+        </p>
+        <p
+          class="text-lg md:text-xl font-light max-w-3xl mx-auto drop-shadow-md text-stone-100 leading-normal"
+        >
+          Ce site est dédié à la mémoire de Danny (Wing Chai) Ng et à la
+          poursuite de son œuvre. Au-delà de sa biographie et de son amour pour
+          la restauration, nous transformons aujourd'hui cet héritage en action
+          concrète pour la sécurité alimentaire dans l'arrondissement
+          Villeray-Saint-Michel-Parc-Extension et à travers Montréal.
+        </p>
+        <div class="pt-8">
+          <a
+            href="#agir"
+            class="inline-block bg-amber-600 hover:bg-amber-700 text-white text-lg font-semibold px-8 py-4 rounded-full transition transform hover:-translate-y-1 shadow-lg"
+          >
+            Soutenir le projet
+          </a>
         </div>
+      </div>
     </section>
 
     <!-- L'Histoire Section -->
     <section id="histoire" class="py-20 bg-white">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div class="order-2 md:order-1 relative">
-                    <!-- Placeholder pour une photo d'archive de Danny Ng -->
-                    <div class="aspect-[4/5] bg-stone-200 rounded-lg overflow-hidden shadow-xl relative group">
-                        <img src="danny_happy.jpg" alt="Ambiance cuisine vintage" class="object-cover w-full h-full opacity-90 group-hover:scale-105 transition duration-700">
-                        <div class="absolute inset-0 bg-stone-900/10"></div>
-                        <div class="absolute bottom-4 left-4 right-4 bg-white/90 p-4 rounded shadow">
-                            <p class="text-sm italic text-stone-600">Danny Ng, le bonheur de partager un bon repas</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="order-1 md:order-2 space-y-6">
-                    <div class="inline-flex items-center space-x-2 text-amber-600 font-semibold uppercase tracking-wider text-sm">
-                        <span class="w-8 h-[1px] bg-amber-600"></span>
-                        <span>L'Héritage</span>
-                    </div>
-                    <h2 class="text-4xl font-bold text-stone-900">Un héritage culinaire</h2>
-                    <div class="prose prose-stone text-lg text-stone-600 leading-relaxed">
-                        <p>
-                            L'histoire du Resto Danny commence bien avant aujourd'hui. Elle débute en 1975, dans la cuisine d'un restaurant de Rouyn-Noranda, par la rencontre entre <strong>Wing Chai « Danny » Ng</strong> (né le 2 février 1950 à Hong Kong) et Lorraine Adam.
-                        </p>
-                        <p>
-                            Immigré au Canada avec une passion pour la cuisine, Danny a consacré sa vie à la restauration, notamment comme propriétaire du <em>Park Lane</em>, un restaurant sino-québécois populaire à Montréal (sur l'avenue du Parc puis rue Rosemont). Sa passion n'était pas tant la haute gastronomie que le plaisir simple et essentiel de bien manger et de bien nourrir les gens autour de lui.
-                        </p>
-                        <p>
-                            Suite à son décès le 6 novembre 2025, son fils Ricky souhaite transformer cet héritage familial en une ressource durable pour la communauté. Le <strong>Resto Danny</strong> est né de cette volonté : offrir à Saint-Michel ce que Danny a offert toute sa vie — de la nourriture chaude, réconfortante et accessible.
-                        </p>
-                    </div>
-                </div>
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div class="order-2 md:order-1 relative">
+            <!-- Placeholder pour une photo d'archive de Danny Ng -->
+            <div
+              class="aspect-[4/5] bg-stone-200 rounded-lg overflow-hidden shadow-xl relative group"
+            >
+              <img
+                src="danny_happy.jpg"
+                alt="Ambiance cuisine vintage"
+                class="object-cover w-full h-full opacity-90 group-hover:scale-105 transition duration-700"
+              />
+              <div class="absolute inset-0 bg-stone-900/10"></div>
+              <div
+                class="absolute bottom-4 left-4 right-4 bg-white/90 p-4 rounded shadow"
+              >
+                <p class="text-sm italic text-stone-600">
+                  Danny Ng, le bonheur de partager un bon repas
+                </p>
+              </div>
             </div>
+          </div>
+          <div class="order-1 md:order-2 space-y-6">
+            <div
+              class="inline-flex items-center space-x-2 text-amber-600 font-semibold uppercase tracking-wider text-sm"
+            >
+              <span class="w-8 h-[1px] bg-amber-600"></span>
+              <span>L'Héritage</span>
+            </div>
+            <h2 class="text-4xl font-bold text-stone-900">
+              Un héritage culinaire
+            </h2>
+            <div
+              class="prose prose-stone text-lg text-stone-600 leading-relaxed"
+            >
+              <p>
+                L'histoire du Resto Danny commence bien avant aujourd'hui. Elle
+                débute en 1975, dans la cuisine d'un restaurant de
+                Rouyn-Noranda, par la rencontre entre
+                <strong>Wing Chai « Danny » Ng</strong> (né le 2 février 1950 à
+                Hong Kong) et Lorraine Adam.
+              </p>
+              <p>
+                Immigré au Canada avec une passion pour la cuisine, Danny a
+                consacré sa vie à la restauration, notamment comme propriétaire
+                du <em>Park Lane</em>, un restaurant sino-québécois populaire à
+                Montréal (sur l'avenue du Parc puis rue Rosemont). Sa passion
+                n'était pas tant la haute gastronomie que le plaisir simple et
+                essentiel de bien manger et de bien nourrir les gens autour de
+                lui.
+              </p>
+              <p>
+                Suite à son décès le 6 novembre 2025, son fils Ricky souhaite
+                transformer cet héritage familial en une ressource durable pour
+                la communauté. Le <strong>Resto Danny</strong> est né de cette
+                volonté : offrir à Saint-Michel ce que Danny a offert toute sa
+                vie — de la nourriture chaude, réconfortante et accessible.
+              </p>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Le Fonds Section -->
     <section id="fonds" class="py-20 bg-stone-50">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <img src="fonds-famille-danny-ng.png" alt="Logo Fonds Famille Danny Ng" class="mx-auto h-32 mb-6">
-                <h2 class="text-4xl font-bold text-stone-900 mb-4">Le Fonds Famille Danny Ng</h2>
-                <p class="text-xl text-stone-600">
-                    Créé en partenariat avec la <strong>Fondation du Grand Montréal (FGM)</strong>, ce fonds philanthropique perpétue la vision de générosité de Danny.
-                </p>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-12 items-start">
-                <div class="space-y-8">
-                    <div>
-                        <h3 class="text-2xl font-bold text-stone-900 mb-3">Notre mission</h3>
-                        <p class="text-lg text-stone-600 leading-relaxed">
-                            Perpétuer l'héritage de Danny Ng en propulsant l'innovation en sécurité alimentaire à Montréal. Enraciné dans le vécu familial aux quartiers Villeray et Rosemont, le fonds s'engage à soutenir des solutions communautaires durables pour offrir une alimentation saine, digne et abordable aux résidents de Montréal.
-                        </p>
-                    </div>
-                    <div>
-                        <h3 class="text-2xl font-bold text-stone-900 mb-3">Comment ça fonctionne</h3>
-                        <p class="text-lg text-stone-600 leading-relaxed">
-                            Le fonds est géré à perpétuité par <a href="https://fgmtl.org/" target="_blank" rel="noopener noreferrer" class="text-amber-700 hover:text-amber-800 underline">La Fondation du Grand Montréal</a>. Les revenus générés permettent de subventionner des initiatives locales qui combattent la faim et l'isolement social.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="bg-white p-8 rounded-xl shadow-md border border-stone-100 flex flex-col items-center text-center">
-                    <div class="w-32 h-32 rounded-full overflow-hidden mb-4 shadow-lg">
-                        <img src="rickyngadam.jpeg" alt="Ricky Ng-Adam" class="w-full h-full object-cover">
-                    </div>
-                    <h3 class="text-xl font-bold text-stone-900">Ricky Ng-Adam</h3>
-                    <p class="text-amber-700 font-medium mb-4">Aviseur du fonds</p>
-                    <a href="https://www.linkedin.com/in/rngadam/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-stone-500 hover:text-[#0077b5] transition">
-                        <i data-lucide="linkedin" class="h-5 w-5 mr-2"></i>
-                        Voir le profil LinkedIn
-                    </a>
-                </div>
-            </div>
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <img
+            src="fonds-famille-danny-ng.png"
+            alt="Logo Fonds Famille Danny Ng"
+            class="mx-auto h-32 mb-6"
+          />
+          <h2 class="text-4xl font-bold text-stone-900 mb-4">
+            Le Fonds Famille Danny Ng
+          </h2>
+          <p class="text-xl text-stone-600">
+            Créé en partenariat avec la
+            <strong>Fondation du Grand Montréal (FGM)</strong>, ce fonds
+            philanthropique perpétue la vision de générosité de Danny.
+          </p>
         </div>
+
+        <div class="grid md:grid-cols-2 gap-12 items-start">
+          <div class="space-y-8">
+            <div>
+              <h3 class="text-2xl font-bold text-stone-900 mb-3">
+                Notre mission
+              </h3>
+              <p class="text-lg text-stone-600 leading-relaxed">
+                Perpétuer l'héritage de Danny Ng en propulsant l'innovation en
+                sécurité alimentaire à Montréal. Enraciné dans le vécu familial
+                aux quartiers Villeray et Rosemont, le fonds s'engage à soutenir
+                des solutions communautaires durables pour offrir une
+                alimentation saine, digne et abordable aux résidents de
+                Montréal.
+              </p>
+            </div>
+            <div>
+              <h3 class="text-2xl font-bold text-stone-900 mb-3">
+                Comment ça fonctionne
+              </h3>
+              <p class="text-lg text-stone-600 leading-relaxed">
+                Le fonds est géré à perpétuité par
+                <a
+                  href="https://fgmtl.org/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-amber-700 hover:text-amber-800 underline"
+                  >La Fondation du Grand Montréal</a
+                >. Les revenus générés permettent de subventionner des
+                initiatives locales qui combattent la faim et l'isolement
+                social.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="bg-white p-8 rounded-xl shadow-md border border-stone-100 flex flex-col items-center text-center"
+          >
+            <div class="w-32 h-32 rounded-full overflow-hidden mb-4 shadow-lg">
+              <img
+                src="rickyngadam.jpeg"
+                alt="Ricky Ng-Adam"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <h3 class="text-xl font-bold text-stone-900">Ricky Ng-Adam</h3>
+            <p class="text-amber-700 font-medium mb-4">Aviseur du fonds</p>
+            <a
+              href="https://www.linkedin.com/in/rngadam/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center text-stone-500 hover:text-[#0077b5] transition"
+            >
+              <i data-lucide="linkedin" class="h-5 w-5 mr-2"></i>
+              Voir le profil LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Le Projet Section -->
     <section id="projet" class="py-20 bg-stone-100">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-4xl font-bold text-stone-900 mb-4">Le Projet : Resto Danny</h2>
-                <p class="text-xl text-stone-600">
-                    Le « Resto Danny » est l'incarnation physique de cette mission. Plus qu'un simple hommage, il s'agit d'un projet de cafétéria communautaire situé dans l'arrondissement Villeray-Saint-Michel-Parc-Extension.
-                </p>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Card 1 -->
-                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition border border-stone-100">
-                    <div class="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mb-6 text-amber-700">
-                        <i data-lucide="utensils" class="h-6 w-6"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3 text-stone-900">Accessibilité</h3>
-                    <p class="text-stone-600">
-                        Offrir des repas nutritifs à prix modique ou variable pour les résidents du quartier.
-                    </p>
-                </div>
-                <!-- Card 2 -->
-                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition border border-stone-100">
-                    <div class="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mb-6 text-amber-700">
-                        <i data-lucide="heart" class="h-6 w-6"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3 text-stone-900">Dignité</h3>
-                    <p class="text-stone-600">
-                        Créer un espace de rencontre chaleureux, brisant l'isolement, fidèle à l'esprit hospitalier de Danny.
-                    </p>
-                </div>
-                <!-- Card 3 -->
-                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition border border-stone-100">
-                    <div class="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mb-6 text-amber-700">
-                        <i data-lucide="map-pin" class="h-6 w-6"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3 text-stone-900">Ancrage local</h3>
-                    <p class="text-stone-600">
-                        Un lieu par et pour la communauté de Villeray-Saint-Michel-Parc-Extension.
-                    </p>
-                </div>
-            </div>
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <h2 class="text-4xl font-bold text-stone-900 mb-4">
+            Le Projet : Resto Danny
+          </h2>
+          <p class="text-xl text-stone-600">
+            Le « Resto Danny » est l'incarnation physique de cette mission. Plus
+            qu'un simple hommage, il s'agit d'un projet de cafétéria
+            communautaire situé dans l'arrondissement
+            Villeray-Saint-Michel-Parc-Extension.
+          </p>
         </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Card 1 -->
+          <div
+            class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition border border-stone-100"
+          >
+            <div
+              class="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mb-6 text-amber-700"
+            >
+              <i data-lucide="utensils" class="h-6 w-6"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-stone-900">Accessibilité</h3>
+            <p class="text-stone-600">
+              Offrir des repas nutritifs à prix modique ou variable pour les
+              résidents du quartier.
+            </p>
+          </div>
+          <!-- Card 2 -->
+          <div
+            class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition border border-stone-100"
+          >
+            <div
+              class="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mb-6 text-amber-700"
+            >
+              <i data-lucide="heart" class="h-6 w-6"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-stone-900">Dignité</h3>
+            <p class="text-stone-600">
+              Créer un espace de rencontre chaleureux, brisant l'isolement,
+              fidèle à l'esprit hospitalier de Danny.
+            </p>
+          </div>
+          <!-- Card 3 -->
+          <div
+            class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition border border-stone-100"
+          >
+            <div
+              class="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mb-6 text-amber-700"
+            >
+              <i data-lucide="map-pin" class="h-6 w-6"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-stone-900">Ancrage local</h3>
+            <p class="text-stone-600">
+              Un lieu par et pour la communauté de
+              Villeray-Saint-Michel-Parc-Extension.
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Le Modèle Section (Partenariat) -->
-    <section id="partenariat" class="py-20 bg-amber-900 text-white relative overflow-hidden">
-        <!-- Decorative pattern -->
-        <div class="absolute inset-0 opacity-10 pattern-dots"></div>
-        
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="flex flex-col md:flex-row items-center justify-between gap-12">
-                <div class="md:w-1/2 space-y-6">
-                    <h2 class="text-4xl font-bold text-white mb-6">Un modèle durable</h2>
-                    <p class="text-lg text-amber-100 leading-relaxed">
-                        Pour assurer la pérennité et la qualité des opérations, le projet Resto Danny vise un partenariat opérationnel avec <strong class="text-white">Resto Plateau</strong>.
-                    </p>
-                    <p class="text-lg text-amber-100 leading-relaxed">
-                        Acteur incontournable de l'économie sociale depuis 1992, Resto Plateau possède une expertise unique en insertion socioprofessionnelle et en gestion de services alimentaires. Ce partenariat prospectif permettrait au Resto Danny de bénéficier d'une structure solide, tout en formant la relève en cuisine.
-                    </p>
-                </div>
-                <div class="md:w-1/2 bg-white/10 p-8 rounded-lg backdrop-blur-sm border border-white/20">
-                    <h3 class="text-xl font-bold mb-4 text-amber-300">Impact visé</h3>
-                    <ul class="space-y-4">
-                        <li class="flex items-start">
-                            <i data-lucide="check-circle" class="h-5 w-5 text-amber-400 mt-1 mr-3 flex-shrink-0"></i>
-                            <span>Sécurité alimentaire accrue dans Saint-Michel</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i data-lucide="check-circle" class="h-5 w-5 text-amber-400 mt-1 mr-3 flex-shrink-0"></i>
-                            <span>Création d'emplois et formation en cuisine</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i data-lucide="check-circle" class="h-5 w-5 text-amber-400 mt-1 mr-3 flex-shrink-0"></i>
-                            <span>Modèle d'économie sociale pérenne</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+    <section
+      id="partenariat"
+      class="py-20 bg-amber-900 text-white relative overflow-hidden"
+    >
+      <!-- Decorative pattern -->
+      <div class="absolute inset-0 opacity-10 pattern-dots"></div>
+
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div
+          class="flex flex-col md:flex-row items-center justify-between gap-12"
+        >
+          <div class="md:w-1/2 space-y-6">
+            <h2 class="text-4xl font-bold text-white mb-6">
+              Un modèle durable
+            </h2>
+            <p class="text-lg text-amber-100 leading-relaxed">
+              Pour assurer la pérennité et la qualité des opérations, le projet
+              Resto Danny vise un partenariat opérationnel avec
+              <strong class="text-white">Resto Plateau</strong>.
+            </p>
+            <p class="text-lg text-amber-100 leading-relaxed">
+              Acteur incontournable de l'économie sociale depuis 1992, Resto
+              Plateau possède une expertise unique en insertion
+              socioprofessionnelle et en gestion de services alimentaires. Ce
+              partenariat prospectif permettrait au Resto Danny de bénéficier
+              d'une structure solide, tout en formant la relève en cuisine.
+            </p>
+          </div>
+          <div
+            class="md:w-1/2 bg-white/10 p-8 rounded-lg backdrop-blur-sm border border-white/20"
+          >
+            <h3 class="text-xl font-bold mb-4 text-amber-300">Impact visé</h3>
+            <ul class="space-y-4">
+              <li class="flex items-start">
+                <i
+                  data-lucide="check-circle"
+                  class="h-5 w-5 text-amber-400 mt-1 mr-3 flex-shrink-0"
+                ></i>
+                <span>Sécurité alimentaire accrue dans Saint-Michel</span>
+              </li>
+              <li class="flex items-start">
+                <i
+                  data-lucide="check-circle"
+                  class="h-5 w-5 text-amber-400 mt-1 mr-3 flex-shrink-0"
+                ></i>
+                <span>Création d'emplois et formation en cuisine</span>
+              </li>
+              <li class="flex items-start">
+                <i
+                  data-lucide="check-circle"
+                  class="h-5 w-5 text-amber-400 mt-1 mr-3 flex-shrink-0"
+                ></i>
+                <span>Modèle d'économie sociale pérenne</span>
+              </li>
+            </ul>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Agir Section -->
     <section id="agir" class="py-24 bg-white">
-        <div class="max-w-4xl mx-auto px-4 text-center">
-            <h2 class="text-4xl font-bold text-stone-900 mb-6">Comment contribuer</h2>
-            <p class="text-xl text-stone-600 mb-10 max-w-2xl mx-auto">
-                Votre soutien permet de faire grandir le Fonds Famille Danny Ng et de concrétiser le projet Resto Danny.
-            </p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4 mb-12">
-                <a href="https://fgmtl.org/contribuer/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center bg-amber-700 hover:bg-amber-800 text-white font-bold py-4 px-8 rounded-full shadow-lg transition transform hover:-translate-y-1">
-                    Faire un don
-                </a>
-                <a href="mailto:ricky@restodanny.com" class="inline-flex items-center justify-center bg-white hover:bg-stone-50 text-amber-700 border-2 border-amber-700 font-bold py-4 px-8 rounded-full transition">
-                    <i data-lucide="mail" class="mr-2 h-5 w-5"></i>
-                    Nous contacter
-                </a>
-            </div>
-            <div class="max-w-3xl mx-auto">
-                <blockquote class="text-2xl font-serif italic text-stone-500 leading-relaxed">
-                    « Il n'avait pas seulement la passion de la cuisine, il avait la passion de bien nourrir les gens autour de lui. »
-                </blockquote>
-            </div>
+      <div class="max-w-4xl mx-auto px-4 text-center">
+        <h2 class="text-4xl font-bold text-stone-900 mb-6">
+          Comment contribuer
+        </h2>
+        <p class="text-xl text-stone-600 mb-10 max-w-2xl mx-auto">
+          Votre soutien permet de faire grandir le Fonds Famille Danny Ng et de
+          concrétiser le projet Resto Danny.
+        </p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4 mb-12">
+          <a
+            href="https://fgmtl.org/contribuer/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center bg-amber-700 hover:bg-amber-800 text-white font-bold py-4 px-8 rounded-full shadow-lg transition transform hover:-translate-y-1"
+          >
+            Faire un don
+          </a>
+          <a
+            href="mailto:ricky@restodanny.com"
+            class="inline-flex items-center justify-center bg-white hover:bg-stone-50 text-amber-700 border-2 border-amber-700 font-bold py-4 px-8 rounded-full transition"
+          >
+            <i data-lucide="mail" class="mr-2 h-5 w-5"></i>
+            Nous contacter
+          </a>
         </div>
+        <div class="max-w-3xl mx-auto">
+          <blockquote
+            class="text-2xl font-serif italic text-stone-500 leading-relaxed"
+          >
+            « Il n'avait pas seulement la passion de la cuisine, il avait la
+            passion de bien nourrir les gens autour de lui. »
+          </blockquote>
+        </div>
+      </div>
     </section>
 
     <!-- Footer -->
     <footer class="bg-stone-900 text-stone-400 py-12">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
-            <div class="mb-4 md:mb-0">
-                <span class="text-2xl font-bold text-white tracking-wide font-serif">Resto Danny</span>
-                <p class="text-sm mt-2">Un projet d'économie sociale en devenir.</p>
-            </div>
-            <div class="flex space-x-6">
-                <a href="mailto:ricky@restodanny.com" class="hover:text-white transition">Contact</a>
-                <span class="text-stone-600">|</span>
-                <span class="text-sm">© 2025 Projet Resto Danny. Une initiative philanthropique privée.</span>
-            </div>
+      <div
+        class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center"
+      >
+        <div class="mb-4 md:mb-0">
+          <span class="text-2xl font-bold text-white tracking-wide font-serif"
+            >Resto Danny</span
+          >
+          <p class="text-sm mt-2">Un projet d'économie sociale en devenir.</p>
         </div>
+        <div class="flex space-x-6">
+          <a
+            href="mailto:ricky@restodanny.com"
+            class="hover:text-white transition"
+            >Contact</a
+          >
+          <span class="text-stone-600">|</span>
+          <span class="text-sm"
+            >© 2025 Projet Resto Danny. Une initiative philanthropique
+            privée.</span
+          >
+        </div>
+      </div>
     </footer>
 
     <!-- Initialize Lucide Icons -->
     <script>
-        lucide.createIcons();
+      lucide.createIcons();
     </script>
-</body>
+  </body>
 </html>
